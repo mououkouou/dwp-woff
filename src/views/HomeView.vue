@@ -22,7 +22,8 @@ export default {
   created() {
     /* eslint-disable */
     this.service = this.$route.query.service;
-
+    window.alert("0" + this.service);
+    window.alert("check1" + this.$route.query.docId);
     switch (this.service) {
       case "approval":
         this.set_doc_info({
@@ -44,8 +45,8 @@ export default {
         this.webUrl = "https://gw.aekyung.kr?ownerId=";
         break;
       default:
-        window.alert(this.service);
-        window.alert(this.$route.query.service);
+        window.alert("2" + this.service);
+        window.alert("3" + this.$route.query.service);
         window.alert("잘못된 url 형식입니다.");
         woff.closeWindow();
     }
