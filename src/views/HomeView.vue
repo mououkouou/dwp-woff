@@ -40,10 +40,12 @@ export default {
           this.docInfo.formDocType;
 
         break;
-      case "canlendar":
+      case "calendar":
         this.webUrl = "https://gw.aekyung.kr?ownerId=";
         break;
       default:
+        window.alert(this.service);
+        window.alert(this.$route.query.service);
         window.alert("잘못된 url 형식입니다.");
         woff.closeWindow();
     }
