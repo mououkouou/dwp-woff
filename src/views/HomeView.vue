@@ -21,6 +21,7 @@ export default {
     });
   },
   mounted() {
+    /* eslint-disable */
     woff
       .init({
         woffId: "6M4D9iS1o3oATtHNVJjS8w", // 발행된 WOFF ID
