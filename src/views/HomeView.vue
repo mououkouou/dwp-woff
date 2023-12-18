@@ -18,8 +18,8 @@ export default {
     ...mapMutations("approvalStore", ["set_doc_info"]),
   },
   created() {
+    /* eslint-disable */
     this.service = this.$route.query.service;
-
     switch (this.service) {
       case "approval":
         this.set_doc_info({
@@ -27,7 +27,6 @@ export default {
           formDocType: this.$route.query.formDocType,
           formURL: this.$route.query.formURL,
         });
-
         this.webUrl =
           "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
           this.docInfo.docId +
@@ -36,9 +35,11 @@ export default {
           "&formID=2021000191&orgDocid=&DocState=" +
           this.docInfo.formDocType;
         break;
+
       case "calendar":
         this.webUrl = "https://gw.aekyung.kr?ownerId=";
         break;
+
       default:
         window.alert("잘못된 url 형식입니다.");
         woff.closeWindow();
