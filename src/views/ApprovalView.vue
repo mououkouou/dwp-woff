@@ -9,6 +9,7 @@ export default {
   name: "ApprovalView",
   computed: {
     ...mapState("approvalStore", ["docInfo"]),
+    ...mapState("userStore", ["userInfo"]),
   },
   mounted() {
     /* eslint-disable */
@@ -18,22 +19,21 @@ export default {
       woff.closeWindow();
       return;
     } else {
-      woff.getProfile().then((v) => {
-        woff.openWindow({
-          url:
-            "https://test.commmmmmm/userId=" +
-            v.userId +
-            "&displayName=" +
-            v.displayName +
-            "&domainId=" +
-            v.domainId +
-            "&docId=" +
-            this.docInfo.docId +
-            "&formDocType=" +
-            this.docInfo.formDocType +
-            "&formURL=" +
-            this.docInfo.formURL,
-        });
+      woff.openWindow({
+        //그룹웨어 인증 및 전결 이동 처리 페이지로 이동
+        url:
+          "https://test.commmmmmm?userId=" +
+          this.userInfo.userId +
+          "&displayName=" +
+          this.userInfo.displayName +
+          "&domainId=" +
+          this.userInfo.domainId +
+          "&docId=" +
+          this.docInfo.docId +
+          "&formDocType=" +
+          this.docInfo.formDocType +
+          "&formURL=" +
+          this.docInfo.formURL,
       });
     }
   },
