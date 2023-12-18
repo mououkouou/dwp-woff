@@ -19,6 +19,7 @@ export default {
       woff.closeWindow();
       return;
     } else {
+      window.alert("approvla");
       woff.openWindow({
         //그룹웨어 인증 및 전결 이동 처리 페이지로 이동
         url:
