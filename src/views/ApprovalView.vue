@@ -28,7 +28,7 @@ export default {
             "&domainId=" +
             v.domainId +
             "&docId=" +
-            this.docInfo.docInfo +
+            this.docInfo.docId +
             "&formDocType=" +
             this.docInfo.formDocType +
             "&formURL=" +
