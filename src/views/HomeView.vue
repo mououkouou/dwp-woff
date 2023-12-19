@@ -8,18 +8,23 @@ import { mapMutations, mapState } from "vuex";
 export default {
   name: "HomeView",
   computed: {
-    ...mapState("approvalStore", ["docInfo"]),
+    ...mapState("approvalStore", ["docInfo", "service"]),
   },
   data: () => ({
     service: "",
     webUrl: "",
   }),
   methods: {
-    ...mapMutations("approvalStore", ["set_doc_info"]),
+    ...mapMutations("approvalStore", ["set_doc_info", "set_service"]),
   },
   mounted() {
     /* eslint-disable */
-    this.service = this.$route.query.service;
+    this.set_service(this.$route.query.service);
+    this.set_doc_info({
+      docId: this.$route.query.docId,
+      formDocType: this.$route.query.formDocType,
+      formURL: this.$route.query.formURL,
+    });
     // switch (this.service) {
     //   case "approval":
     //     this.set_doc_info({
