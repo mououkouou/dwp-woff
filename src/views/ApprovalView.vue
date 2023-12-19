@@ -8,13 +8,13 @@ import { mapState } from "vuex";
 export default {
   name: "ApprovalView",
   computed: {
-    ...mapState("approvalStore", ["docInfo"]),
+    ...mapState("approvalStore", ["docInfo", "service"]),
   },
+  data: () => ({ webURL: "" }),
   mounted() {
     /* eslint-disable */
-
-    const connectOS = woff.getOS();
-    if (connectOS === "web") {
+    if (woff.getOS() === "web") {
+      //PC 접근
       woff.openWindow({
         url:
           "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
@@ -25,33 +25,33 @@ export default {
           this.docInfo.formDocType,
       });
       window.close(); //창 안닫힘
-
       return;
-    }
-
-    if (!woff.isLoggedIn()) {
-      //로그인 유무 확인
-      window.alert("네이버웍스 로그인 후 사용 가능합니다.");
-      woff.closeWindow();
-      return;
-    } else {
-      woff.getProfile().then((v) => {
-        woff.openWindow({
-          url:
-            "https://test.commmmmmm/userId=" +
-            v.userId +
-            "&displayName=" +
-            v.displayName +
-            "&domainId=" +
-            v.domainId +
-            "&docId=" +
-            this.docInfo.docId +
-            "&formDocType=" +
-            this.docInfo.formDocType +
-            "&formURL=" +
-            this.docInfo.formURL,
+    } else if (woff.getOS() === "ios" || woff.getOS() === "android") {
+      //MOBILE 접근
+      if (!woff.isLoggedIn()) {
+        //로그인 유무 확인
+        window.alert("네이버웍스 로그인 후 사용 가능합니다.");
+        woff.closeWindow();
+        return;
+      } else {
+        woff.getProfile().then((v) => {
+          woff.openWindow({
+            url:
+              "https://test.commmmmmm/userId=" +
+              v.userId +
+              "&displayName=" +
+              v.displayName +
+              "&domainId=" +
+              v.domainId +
+              "&docId=" +
+              this.docInfo.docId +
+              "&formDocType=" +
+              this.docInfo.formDocType +
+              "&formURL=" +
+              this.docInfo.formURL,
+          });
         });
-      });
+      }
     }
   },
 };
