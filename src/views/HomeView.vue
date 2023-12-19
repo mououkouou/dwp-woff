@@ -24,6 +24,7 @@ export default {
   },
   mounted() {
     /* eslint-disable */
+    console.log(this.$route.query);
     console.log("1");
     console.log(this.service);
     console.log(this.docInfo);
@@ -31,15 +32,15 @@ export default {
       console.log("2");
       console.log(this.service);
       console.log(this.docInfo);
-      woff.openWindow({
-        url:
-          "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
-          this.docInfo.docId +
-          "&DocHref=" +
-          this.docInfo.formURL +
-          "&formID=2021000191&orgDocid=&DocState=" +
-          this.docInfo.formDocType,
-      });
+      // woff.openWindow({
+      //   url:
+      //     "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
+      //     this.docInfo.docId +
+      //     "&DocHref=" +
+      //     this.docInfo.formURL +
+      //     "&formID=2021000191&orgDocid=&DocState=" +
+      //     this.docInfo.formDocType,
+      // });
       return;
     }
 
