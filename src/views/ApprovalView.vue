@@ -13,6 +13,12 @@ export default {
   data: () => ({ webURL: "" }),
   mounted() {
     /* eslint-disable */
+    if (!woff.isLoggedIn()) {
+      //로그인 유무 확인
+      window.alert("네이버웍스 로그인 후 사용 가능합니다.");
+      woff.closeWindow();
+      return;
+    }
     if (woff.getOS() === "web") {
       //PC 접근
       woff.openWindow({
