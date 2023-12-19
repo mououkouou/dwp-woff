@@ -78,6 +78,17 @@ export default {
             window.alert("네이버웍스 로그인 후 사용 가능합니다.");
             woff.closeWindow();
             return;
+          } else if (connectOS === "web") {
+            woff.openWindow({
+              url:
+                "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
+                this.docInfo.docId +
+                "&DocHref=" +
+                this.docInfo.formURL +
+                "&formID=2021000191&orgDocid=&DocState=" +
+                this.docInfo.formDocType,
+            });
+            return;
           }
           // } else if (this.service === undefined || this.service === "") {
           //   window.alert("잘못된 주소 입니다.");
@@ -89,7 +100,7 @@ export default {
           console.log(err.code, err.message);
         });
 
-      this.$router.push(this.service);
+      this.$router.push("/approval");
     }
   },
 };
