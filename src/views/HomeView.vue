@@ -17,7 +17,7 @@ export default {
   methods: {
     ...mapMutations("approvalStore", ["set_doc_info"]),
   },
-  created() {
+  mounted() {
     /* eslint-disable */
     this.service = this.$route.query.service;
     switch (this.service) {
@@ -44,8 +44,10 @@ export default {
         window.alert("잘못된 url 형식입니다.");
         woff.closeWindow();
     }
+
+    this.$router.push(this.service);
   },
-  mounted() {
+  created() {
     /* eslint-disable */
     woff
       .init({
@@ -63,8 +65,6 @@ export default {
         // 초기화 처리 중 오류가 발생한 경우
         console.log(err.code, err.message);
       });
-
-    this.$router.push(this.service);
   },
 };
 </script>
