@@ -24,7 +24,7 @@ export default {
           "&formID=2021000191&orgDocid=&DocState=" +
           this.docInfo.formDocType,
       });
-      window.close(); //창 안닫힘 해야함
+      window.close(); //창 안닫힘
 
       return;
     }
@@ -38,28 +38,19 @@ export default {
       woff.getProfile().then((v) => {
         woff.openWindow({
           url:
-            "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
+            "https://test.commmmmmm/userId=" +
+            v.userId +
+            "&displayName=" +
+            v.displayName +
+            "&domainId=" +
+            v.domainId +
+            "&docId=" +
             this.docInfo.docId +
-            "&DocHref=" +
-            this.docInfo.formURL +
-            "&formID=2021000191&orgDocid=&DocState=" +
-            this.docInfo.formDocType,
+            "&formDocType=" +
+            this.docInfo.formDocType +
+            "&formURL=" +
+            this.docInfo.formURL,
         });
-        // woff.openWindow({
-        //   url:
-        //     "https://test.commmmmmm/userId=" +
-        //     v.userId +
-        //     "&displayName=" +
-        //     v.displayName +
-        //     "&domainId=" +
-        //     v.domainId +
-        //     "&docId=" +
-        //     this.docInfo.docId +
-        //     "&formDocType=" +
-        //     this.docInfo.formDocType +
-        //     "&formURL=" +
-        //     this.docInfo.formURL,
-        // });
       });
     }
   },
