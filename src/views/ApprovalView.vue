@@ -18,6 +18,7 @@ export default {
       woff.closeWindow();
       return;
     } else {
+      const connectOS = woff.getOS();
       if (connectOS === "web") {
         woff.openWindow({
           url:

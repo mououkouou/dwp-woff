@@ -23,6 +23,7 @@ export default {
       formDocType: this.$route.query.formDocType,
       formURL: this.$route.query.formURL,
     });
+    this.set_service(this.$route.query.service);
   },
   mounted() {
     /* eslint-disable */
@@ -61,18 +62,6 @@ export default {
         woffId: "6M4D9iS1o3oATtHNVJjS8w", // 발행된 WOFF ID
       })
       .then(() => {
-        if (connectOS === "web") {
-          woff.openWindow({
-            url:
-              "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
-              this.docInfo.docId +
-              "&DocHref=" +
-              this.docInfo.formURL +
-              "&formID=2021000191&orgDocid=&DocState=" +
-              this.docInfo.formDocType,
-          });
-          return;
-        }
         if (!woff.isLoggedIn()) {
           //로그인 유무 확인
           window.alert("네이버웍스 로그인 후 사용 가능합니다.");
