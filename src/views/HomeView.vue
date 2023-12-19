@@ -34,6 +34,7 @@ export default {
           this.docInfo.formURL +
           "&formID=2021000191&orgDocid=&DocState=" +
           this.docInfo.formDocType;
+        console.log("1");
         break;
 
       case "calendar":
@@ -44,6 +45,9 @@ export default {
   mounted() {
     /* eslint-disable */
     const connectOS = woff.getOS();
+    console.log(this.webUrl !== "");
+    console.log(this.webUrl);
+
     if (connectOS === "web" && this.webUrl !== "") {
       woff.openWindow({
         url: this.webUrl,
