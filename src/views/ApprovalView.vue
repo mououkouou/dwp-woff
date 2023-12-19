@@ -18,6 +18,19 @@ export default {
       woff.closeWindow();
       return;
     } else {
+      if (connectOS === "web") {
+        woff.openWindow({
+          url:
+            "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
+            this.docInfo.docId +
+            "&DocHref=" +
+            this.docInfo.formURL +
+            "&formID=2021000191&orgDocid=&DocState=" +
+            this.docInfo.formDocType,
+        });
+        return;
+      }
+
       woff.getProfile().then((v) => {
         woff.openWindow({
           url:
