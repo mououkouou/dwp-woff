@@ -28,10 +28,12 @@ export default {
     console.log("1");
     console.log(this.service);
     console.log(this.docInfo);
+    window.alert(this.$route);
     if (woff.getOS() === "web") {
       console.log("2");
       console.log(this.service);
       console.log(this.docInfo);
+      window.alert(this.$route);
       window.alert(this.$route.query);
       // woff.openWindow({
       //   url:
