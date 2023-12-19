@@ -22,6 +22,18 @@ export default {
   },
   mounted() {
     /* eslint-disable */
+    if (woff.getOS() === "web") {
+      woff.openWindow(
+        "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
+          this.docInfo.docId +
+          "&DocHref=" +
+          this.docInfo.formURL +
+          "&formID=2021000191&orgDocid=&DocState=" +
+          this.docInfo.formDocType
+      );
+      return;
+    }
+
     woff
       .init({
         woffId: "6M4D9iS1o3oATtHNVJjS8w", // 발행된 WOFF ID
