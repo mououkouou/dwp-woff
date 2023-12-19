@@ -10,27 +10,42 @@ export default {
   computed: {
     ...mapState("approvalStore", ["docInfo"]),
   },
+  data: () => ({
+    service: "",
+    webUrl: "",
+  }),
   methods: {
     ...mapMutations("approvalStore", ["set_doc_info"]),
   },
   created() {
-    this.set_doc_info({
-      docId: this.$route.query.docId,
-      formDocType: this.$route.query.formDocType,
-      formURL: this.$route.query.formURL,
-    });
-  },
-  mounted() {
-    /* eslint-disable */
-    if (woff.getOS() === "web") {
-      woff.openWindow({
-        url:
+    this.service = this.$route.query.service;
+    switch (this.service) {
+      case "approval":
+        this.set_doc_info({
+          docId: this.$route.query.docId,
+          formDocType: this.$route.query.formDocType,
+          formURL: this.$route.query.formURL,
+        });
+        this.webUrl =
           "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
           this.docInfo.docId +
           "&DocHref=" +
           this.docInfo.formURL +
           "&formID=2021000191&orgDocid=&DocState=" +
-          this.docInfo.formDocType,
+          this.docInfo.formDocType;
+        console.log("1");
+        break;
+
+      case "calendar":
+        this.webUrl = "https://gw.aekyung.kr?ownerId=";
+        break;
+    }
+  },
+  mounted() {
+    /* eslint-disable */
+    if (woff.getOS() === "web" && this.webUrl !== "") {
+      woff.openWindow({
+        url: this.webUrl,
       });
       return;
     }
