@@ -17,14 +17,21 @@ export default {
   methods: {
     ...mapMutations("approvalStore", ["set_doc_info", "set_service"]),
   },
-  mounted() {
-    /* eslint-disable */
-    this.set_service(this.$route.query.service);
+  created() {
     this.set_doc_info({
       docId: this.$route.query.docId,
       formDocType: this.$route.query.formDocType,
       formURL: this.$route.query.formURL,
     });
+  },
+  mounted() {
+    /* eslint-disable */
+    // this.set_service(this.$route.query.service);
+    // this.set_doc_info({
+    //   docId: this.$route.query.docId,
+    //   formDocType: this.$route.query.formDocType,
+    //   formURL: this.$route.query.formURL,
+    // });
     // switch (this.service) {
     //   case "approval":
     //     this.set_doc_info({
@@ -71,10 +78,11 @@ export default {
             window.alert("네이버웍스 로그인 후 사용 가능합니다.");
             woff.closeWindow();
             return;
-          } else if (this.service === undefined || this.service === "") {
-            window.alert("잘못된 주소 입니다.");
-            woff.closeWindow();
           }
+          // } else if (this.service === undefined || this.service === "") {
+          //   window.alert("잘못된 주소 입니다.");
+          //   woff.closeWindow();
+          // }
         })
         .catch((err) => {
           // 초기화 처리 중 오류가 발생한 경우
