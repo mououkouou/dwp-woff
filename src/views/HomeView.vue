@@ -17,9 +17,10 @@ export default {
   methods: {
     ...mapMutations("approvalStore", ["set_doc_info"]),
   },
-  created() {
+  mounted() {
     /* eslint-disable */
     this.service = this.$route.query.service;
+    console.log(this.$route.query);
     switch (this.service) {
       case "approval":
         this.set_doc_info({
@@ -41,9 +42,7 @@ export default {
         this.webUrl = "https://gw.aekyung.kr?ownerId=";
         break;
     }
-  },
-  mounted() {
-    /* eslint-disable */
+
     const connectOS = woff.getOS();
     console.log(this.webUrl !== "");
     console.log(this.webUrl);
