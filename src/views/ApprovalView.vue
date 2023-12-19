@@ -12,26 +12,26 @@ export default {
   },
   mounted() {
     /* eslint-disable */
+
+    const connectOS = woff.getOS();
+    if (connectOS === "web") {
+      woff.openWindow({
+        url:
+          "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
+          this.docInfo.docId +
+          "&DocHref=" +
+          this.docInfo.formURL +
+          "&formID=2021000191&orgDocid=&DocState=" +
+          this.docInfo.formDocType,
+      });
+      return;
+    }
     if (!woff.isLoggedIn()) {
       //로그인 유무 확인
       window.alert("네이버웍스 로그인 후 사용 가능합니다.");
       woff.closeWindow();
       return;
     } else {
-      const connectOS = woff.getOS();
-      if (connectOS === "web") {
-        woff.openWindow({
-          url:
-            "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
-            this.docInfo.docId +
-            "&DocHref=" +
-            this.docInfo.formURL +
-            "&formID=2021000191&orgDocid=&DocState=" +
-            this.docInfo.formDocType,
-        });
-        return;
-      }
-
       woff.getProfile().then((v) => {
         woff.openWindow({
           url:
