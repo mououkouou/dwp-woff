@@ -22,6 +22,9 @@ export default {
   },
   mounted() {
     /* eslint-disable */
+    console.log(woff.getOS());
+    console.log(woff.getOS() === "web");
+
     if (woff.getOS() === "web") {
       woff.openWindow(
         "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
