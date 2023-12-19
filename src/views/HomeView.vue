@@ -35,15 +35,15 @@ export default {
       console.log(this.docInfo);
       window.alert(this.$route);
       window.alert(this.$route.query);
-      // woff.openWindow({
-      //   url:
-      //     "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
-      //     this.docInfo.docId +
-      //     "&DocHref=" +
-      //     this.docInfo.formURL +
-      //     "&formID=2021000191&orgDocid=&DocState=" +
-      //     this.docInfo.formDocType,
-      // });
+      woff.openWindow({
+        url:
+          "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
+          this.docInfo.docId +
+          "&DocHref=" +
+          this.docInfo.formURL +
+          "&formID=2021000191&orgDocid=&DocState=" +
+          this.docInfo.formDocType,
+      });
       return;
     }
 
