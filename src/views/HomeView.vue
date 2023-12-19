@@ -11,7 +11,7 @@ export default {
     ...mapState("approvalStore", ["docInfo"]),
   },
   methods: {
-    ...mapMutations("approvalStore", ["set_doc_info"]),
+    ...mapMutations("approvalStore", ["set_doc_info", "set_service"]),
   },
   created() {
     this.set_doc_info({
@@ -24,9 +24,13 @@ export default {
   },
   mounted() {
     /* eslint-disable */
+    console.log("1");
     console.log(this.service);
     console.log(this.docInfo);
     if (woff.getOS() === "web") {
+      console.log("2");
+      console.log(this.service);
+      console.log(this.docInfo);
       woff.openWindow({
         url:
           "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
