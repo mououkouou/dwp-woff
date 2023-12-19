@@ -22,18 +22,16 @@ export default {
   },
   mounted() {
     /* eslint-disable */
-    console.log(woff.getOS());
-    console.log(woff.getOS() === "web");
-
     if (woff.getOS() === "web") {
-      woff.openWindow(
-        "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
+      woff.openWindow({
+        url:
+          "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
           this.docInfo.docId +
           "&DocHref=" +
           this.docInfo.formURL +
           "&formID=2021000191&orgDocid=&DocState=" +
-          this.docInfo.formDocType
-      );
+          this.docInfo.formDocType,
+      });
       return;
     }
 
