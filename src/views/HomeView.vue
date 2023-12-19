@@ -32,6 +32,7 @@ export default {
       console.log("2");
       console.log(this.service);
       console.log(this.docInfo);
+      window.alert(this.$route.query);
       // woff.openWindow({
       //   url:
       //     "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
