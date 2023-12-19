@@ -20,33 +20,39 @@ export default {
   mounted() {
     /* eslint-disable */
     this.service = this.$route.query.service;
-    switch (this.service) {
-      case "approval":
-        this.set_doc_info({
-          docId: this.$route.query.docId,
-          formDocType: this.$route.query.formDocType,
-          formURL: this.$route.query.formURL,
-        });
-        this.webUrl =
-          "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
-          this.docInfo.docId +
-          "&DocHref=" +
-          this.docInfo.formURL +
-          "&formID=2021000191&orgDocid=&DocState=" +
-          this.docInfo.formDocType;
-        console.log("1");
-        break;
+    // switch (this.service) {
+    //   case "approval":
+    //     this.set_doc_info({
+    //       docId: this.$route.query.docId,
+    //       formDocType: this.$route.query.formDocType,
+    //       formURL: this.$route.query.formURL,
+    //     });
+    //     this.webUrl =
+    //       "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
+    //       this.docInfo.docId +
+    //       "&DocHref=" +
+    //       this.docInfo.formURL +
+    //       "&formID=2021000191&orgDocid=&DocState=" +
+    //       this.docInfo.formDocType;
+    //     console.log("1");
+    //     break;
 
-      case "calendar":
-        this.webUrl = "https://gw.aekyung.kr?ownerId=";
-        break;
-    }
+    //   case "calendar":
+    //     this.webUrl = "https://gw.aekyung.kr?ownerId=";
+    //     break;
+    // }
 
     const connectOS = woff.getOS();
 
     if (connectOS === "web") {
       woff.openWindow({
-        url: this.webUrl,
+        url:
+          "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
+          this.docInfo.docId +
+          "&DocHref=" +
+          this.docInfo.formURL +
+          "&formID=2021000191&orgDocid=&DocState=" +
+          this.docInfo.formDocType,
       });
       return;
     } else if (connectOS === "ios" || connectOS === "android") {
