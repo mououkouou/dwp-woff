@@ -55,19 +55,19 @@ export default {
     //     break;
     // }
 
-    const connectOS = woff.getOS();
+    //const connectOS = woff.getOS();
 
     woff
       .init({
         woffId: "6M4D9iS1o3oATtHNVJjS8w", // 발행된 WOFF ID
       })
       .then(() => {
-        if (!woff.isLoggedIn()) {
-          //로그인 유무 확인
-          window.alert("네이버웍스 로그인 후 사용 가능합니다.");
-          woff.closeWindow();
-          return;
-        }
+        // if (!woff.isLoggedIn()) {
+        //   //로그인 유무 확인
+        //   window.alert("네이버웍스 로그인 후 사용 가능합니다.");
+        //   woff.closeWindow();
+        //   return;
+        // }
         // } else if (this.service === undefined || this.service === "") {
         //   window.alert("잘못된 주소 입니다.");
         //   woff.closeWindow();
