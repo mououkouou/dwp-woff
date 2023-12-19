@@ -24,6 +24,7 @@ export default {
           "&formID=2021000191&orgDocid=&DocState=" +
           this.docInfo.formDocType,
       });
+      woff.closeWindow();
       return;
     }
 
