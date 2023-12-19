@@ -8,42 +8,49 @@ import { mapMutations, mapState } from "vuex";
 export default {
   name: "HomeView",
   computed: {
-    ...mapState("approvalStore", ["docInfo"]),
+    ...mapState("approvalStore", ["docInfo", "service"]),
   },
   data: () => ({
-    service: "",
     webUrl: "",
   }),
   methods: {
-    ...mapMutations("approvalStore", ["set_doc_info"]),
+    ...mapMutations("approvalStore", ["set_doc_info", "set_service"]),
   },
   created() {
-    this.service = this.$route.query.service;
-    switch (this.service) {
-      case "approval":
-        this.set_doc_info({
-          docId: this.$route.query.docId,
-          formDocType: this.$route.query.formDocType,
-          formURL: this.$route.query.formURL,
-        });
-        this.webUrl =
-          "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
-          this.docInfo.docId +
-          "&DocHref=" +
-          this.docInfo.formURL +
-          "&formID=2021000191&orgDocid=&DocState=" +
-          this.docInfo.formDocType;
-        console.log("1");
-        break;
+    this.set_service(this.$route.query.service);
+    console.log(this.service);
+    this.set_doc_info({
+      docId: this.$route.query.docId,
+      formDocType: this.$route.query.formDocType,
+      formURL: this.$route.query.formURL,
+    });
+    console.log(this.docInfo);
 
-      case "calendar":
-        this.webUrl = "https://gw.aekyung.kr?ownerId=";
-        break;
-    }
+    // switch (this.service) {
+    //   case "approval":
+    //     this.set_doc_info({
+    //       docId: this.$route.query.docId,
+    //       formDocType: this.$route.query.formDocType,
+    //       formURL: this.$route.query.formURL,
+    //     });
+    //     this.webUrl =
+    //       "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
+    //       this.docInfo.docId +
+    //       "&DocHref=" +
+    //       this.docInfo.formURL +
+    //       "&formID=2021000191&orgDocid=&DocState=" +
+    //       this.docInfo.formDocType;
+    //     console.log("1");
+    //     break;
+
+    //   case "calendar":
+    //     this.webUrl = "https://gw.aekyung.kr?ownerId=";
+    //     break;
+    // }
   },
   mounted() {
     /* eslint-disable */
-    if (woff.getOS() === "web" && this.webUrl !== "") {
+    if (woff.getOS() === "web") {
       woff.openWindow({
         url: this.webUrl,
       });
