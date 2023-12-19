@@ -26,6 +26,7 @@ export default {
       });
       return;
     }
+
     if (!woff.isLoggedIn()) {
       //로그인 유무 확인
       window.alert("네이버웍스 로그인 후 사용 가능합니다.");
