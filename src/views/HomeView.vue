@@ -18,7 +18,6 @@ export default {
 
     this.set_doc_info({
       //서비스 별로 파라미터로 보낼 정보 세팅 샘플
-      type: this.$route.query.type,
       key: this.$route.query.key,
     });
   },

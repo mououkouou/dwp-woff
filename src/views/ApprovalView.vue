@@ -18,8 +18,7 @@ export default {
       woff.openWindow({
         url:
           "https://gw.aekyung.kr:11000/LoginToRedirect2.aspx?" +
-          "type=" +
-          this.docInfo.type +
+          "type=ING" +
           "&key=" +
           this.docInfo.key,
       });
@@ -36,14 +35,13 @@ export default {
         woff.getProfile().then((v) => {
           woff.openWindow({
             url:
-              "https://booming-church-eb2.notion.site/ea01af646a8f424fb6ec939d79426f0f?userId=" +
+              "https://axdwp.aekyung.kr/naverworksbots/woff.do?userId=" +
               v.userId +
               "&displayName=" +
               v.displayName +
               "&domainId=" +
               v.domainId +
-              "type=" +
-              this.docInfo.type +
+              "type=ING" +
               "key=" +
               this.docInfo.key,
           });
