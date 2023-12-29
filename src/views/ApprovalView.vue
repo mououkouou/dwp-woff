@@ -36,7 +36,7 @@ export default {
         woff.getProfile().then((v) => {
           woff.openWindow({
             url:
-              "https://axdwp.test/naverworksbots/woff.do?userId=" +
+              "https://www.notion.so/ea01af646a8f424fb6ec939d79426f0f?userId=" +
               v.userId +
               "&displayName=" +
               v.displayName +
