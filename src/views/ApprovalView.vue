@@ -17,17 +17,11 @@ export default {
       //PC 접근
       woff.openWindow({
         url:
-          "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?" +
-          "DocID=" +
-          this.docInfo.docId +
-          "uID=" +
-          this.docInfo.uId +
-          "&uName=" +
-          this.docInfo.uName +
-          "&uDeptID=" +
-          this.docInfo.uDeptId +
-          "&toyear" +
-          this.docInfo.toYear,
+          "https://gw.aekyung.kr:11000/LoginToRedirect2.aspx?" +
+          "type=" +
+          this.docInfo.type +
+          "&key=" +
+          this.docInfo.key,
       });
       window.close(); //창 안닫힘
       return;
@@ -48,16 +42,10 @@ export default {
               v.displayName +
               "&domainId=" +
               v.domainId +
-              "docId=" +
-              this.docInfo.docId +
-              "uId=" +
-              this.docInfo.uId +
-              "&uName=" +
-              this.docInfo.uName +
-              "&uDeptId=" +
-              this.docInfo.uDeptId +
-              "&toYear" +
-              this.docInfo.toYear,
+              "type=" +
+              this.docInfo.type +
+              "key=" +
+              this.docInfo.key,
           });
         });
       }

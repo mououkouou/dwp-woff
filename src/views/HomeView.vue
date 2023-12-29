@@ -18,11 +18,8 @@ export default {
 
     this.set_doc_info({
       //서비스 별로 파라미터로 보낼 정보 세팅 샘플
-      docId: this.$route.query.docId,
-      uId: this.$route.query.uId,
-      uName: this.$route.query.uName,
-      uDeptId: this.$route.query.uDeptId,
-      toYear: this.$route.query.toYear,
+      type: this.$route.query.type,
+      key: this.$route.query.key,
     });
   },
   mounted() {
