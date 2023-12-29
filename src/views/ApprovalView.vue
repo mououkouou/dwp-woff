@@ -36,7 +36,7 @@ export default {
         woff.getProfile().then((v) => {
           woff.openWindow({
             url:
-              "https://axdwp.aekyung.kr/naverworksbots/woff.do?userId=" +
+              "https://axdwp.test/naverworksbots/woff.do?userId=" +
               v.userId +
               "&displayName=" +
               v.displayName +
