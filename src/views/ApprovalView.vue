@@ -17,12 +17,17 @@ export default {
       //PC 접근
       woff.openWindow({
         url:
-          "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?DocID=" +
+          "https://gw.aekyung.kr/myoffice/ezApproval/formContainer/contDocView_Cross.aspx?" +
+          "DocID=" +
           this.docInfo.docId +
-          "&DocHref=" +
-          this.docInfo.formURL +
-          "&formID=2021000191&orgDocid=&DocState=" +
-          this.docInfo.formDocType,
+          "uID=" +
+          this.docInfo.uId +
+          "&uName=" +
+          this.docInfo.uName +
+          "&uDeptID=2021000191&orgDocid=&DocState=" +
+          this.docInfo.uDeptId +
+          "&toyear" +
+          this.docInfo.toYear,
       });
       window.close(); //창 안닫힘
       return;
@@ -37,18 +42,22 @@ export default {
         woff.getProfile().then((v) => {
           woff.openWindow({
             url:
-              "https://test.commmmmmm/userId=" +
+              "https://axdwp.aekyung.kr/naverworksbots/woff.do/userId=" +
               v.userId +
               "&displayName=" +
               v.displayName +
               "&domainId=" +
               v.domainId +
-              "&docId=" +
+              "docID=" +
               this.docInfo.docId +
-              "&formDocType=" +
-              this.docInfo.formDocType +
-              "&formURL=" +
-              this.docInfo.formURL,
+              "uID=" +
+              this.docInfo.uId +
+              "&uName=" +
+              this.docInfo.uName +
+              "&uDeptID=" +
+              this.docInfo.uDeptId +
+              "&toyear" +
+              this.docInfo.toYear,
           });
         });
       }
