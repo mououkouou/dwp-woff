@@ -24,7 +24,7 @@ export default {
           this.docInfo.uId +
           "&uName=" +
           this.docInfo.uName +
-          "&uDeptID=2021000191&orgDocid=&DocState=" +
+          "&uDeptID=" +
           this.docInfo.uDeptId +
           "&toyear" +
           this.docInfo.toYear,
@@ -42,21 +42,21 @@ export default {
         woff.getProfile().then((v) => {
           woff.openWindow({
             url:
-              "https://axdwp.aekyung.kr/naverworksbots/woff.do/userId=" +
+              "https://axdwp.aekyung.kr/naverworksbots/woff.do?userId=" +
               v.userId +
               "&displayName=" +
               v.displayName +
               "&domainId=" +
               v.domainId +
-              "docID=" +
+              "docId=" +
               this.docInfo.docId +
-              "uID=" +
+              "uId=" +
               this.docInfo.uId +
               "&uName=" +
               this.docInfo.uName +
-              "&uDeptID=" +
+              "&uDeptId=" +
               this.docInfo.uDeptId +
-              "&toyear" +
+              "&toYear" +
               this.docInfo.toYear,
           });
         });
