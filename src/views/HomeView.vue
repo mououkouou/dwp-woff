@@ -25,7 +25,7 @@ export default {
     /* eslint-disable */
     woff
       .init({
-        woffId: "6M4D9iS1o3oATtHNVJjS8w", // 발행된 WOFF ID
+        woffId: "J1pIRq1ZRwF56R8lg0MYPw", // 발행된 WOFF ID
       })
       .then(() => {
         this.$router.push(this.service); //서비스 페이지로 이동
