@@ -18,6 +18,7 @@ export default {
     ...mapMutations("boardStore", ["set_board_info"]),
   },
   created() {
+    /* eslint-disable */
     this.set_service(this.$route.query.service); // 서비스 종류 세팅
 
     console.log(this.service);
@@ -46,7 +47,6 @@ export default {
     }
   },
   mounted() {
-    /* eslint-disable */
     woff
       .init({
         woffId: "J1pIRq1ZRwF56R8lg0MYPw", // 발행된 WOFF ID
