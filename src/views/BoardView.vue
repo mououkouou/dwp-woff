@@ -1,14 +1,14 @@
 <template>
-  <div class="approval"></div>
+  <div class="board"></div>
 </template>
 
 <script>
 import { mapState } from "vuex";
 
 export default {
-  name: "ApprovalView",
+  name: "BoardView",
   computed: {
-    ...mapState("approvalStore", ["docInfo"]),
+    ...mapState("boardStore", ["boardInfo"]),
   },
   data: () => ({ webURL: "" }),
   mounted() {
@@ -17,10 +17,15 @@ export default {
       //PC 접근
       woff.openWindow({
         url:
-          "https://gw.aekyung.kr:11000/LoginToRedirect2.aspx?" +
-          "type=ING" +
-          "&key=" +
-          this.docInfo.key,
+          "https://axdwp.aekyung.kr/ezBoard/boardItemView.do?" +
+          "showAdjacent=" +
+          this.boardInfo.showAdjacent +
+          "&itemID=" +
+          this.boardInfo.itemID +
+          "&boardID=" +
+          this.boardInfo.boardID +
+          "&location=" +
+          this.boardInfo.location,
       });
       window.close(); //창 안닫힘
       return;
@@ -41,9 +46,14 @@ export default {
               v.displayName +
               "&domainId=" +
               v.domainId +
-              "&type=ING" +
-              "&key=" +
-              this.docInfo.key,
+              "&showAdjacent=" +
+              this.boardInfo.showAdjacent +
+              "&itemID=" +
+              this.boardInfo.itemID +
+              "&boardID=" +
+              this.boardInfo.boardID +
+              "&location=" +
+              this.boardInfo.location,
           });
         });
       }

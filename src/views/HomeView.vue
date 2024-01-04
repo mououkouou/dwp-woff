@@ -8,18 +8,42 @@ import { mapMutations, mapState } from "vuex";
 export default {
   name: "HomeView",
   computed: {
-    ...mapState("approvalStore", ["service", "docInfo"]),
+    ...mapState("serviceStore", ["service"]),
+    ...mapState("approvalStore", ["docInfo"]),
+    ...mapState("boardStore", ["boardInfo"]),
   },
   methods: {
-    ...mapMutations("approvalStore", ["set_service", "set_doc_info"]),
+    ...mapMutations("serviceStore", ["set_service"]),
+    ...mapMutations("approvalStore", ["set_doc_info"]),
+    ...mapMutations("boardStore", ["set_board_info"]),
   },
   created() {
     this.set_service(this.$route.query.service); // 서비스 종류 세팅
 
-    this.set_doc_info({
-      //서비스 별로 파라미터로 보낼 정보 세팅 샘플
-      key: this.$route.query.key,
-    });
+    console.log(this.service);
+    window.alert(this.service);
+
+    if (this.service) {
+      switch (this.service) {
+        case "approval":
+          this.set_doc_info({
+            //서비스 별로 파라미터로 보낼 정보 세팅 샘플
+            key: this.$route.query.key,
+          });
+          break;
+        case "board":
+          this.set_board_info({
+            showAdjacent: this.$route.query.showAdjacent,
+            itemID: this.$route.query.itemID,
+            boardID: this.$route.query.boardID,
+            location: this.$route.query.location,
+          });
+          break;
+        default:
+          window.alert("잘못된 url 입니다.");
+          woff.closeWindow();
+      }
+    }
   },
   mounted() {
     /* eslint-disable */
