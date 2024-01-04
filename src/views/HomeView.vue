@@ -21,9 +21,6 @@ export default {
     /* eslint-disable */
     this.set_service(this.$route.query.service); // 서비스 종류 세팅
 
-    console.log(this.service);
-    window.alert(this.service);
-
     if (this.service) {
       switch (this.service) {
         case "approval":
