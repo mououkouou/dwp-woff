@@ -41,8 +41,8 @@ export default {
               v.displayName +
               "&domainId=" +
               v.domainId +
-              "type=ING" +
-              "key=" +
+              "&type=ING" +
+              "&key=" +
               this.docInfo.key,
           });
         });
