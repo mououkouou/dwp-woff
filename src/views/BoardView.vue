@@ -8,7 +8,7 @@ import { mapState } from "vuex";
 export default {
   name: "BoardView",
   computed: {
-    ...mapState("boardStore", ["boardInfo"]),
+    ...mapState("boardStore", ["boardUrl"]),
   },
   data: () => ({ webURL: "" }),
   mounted() {
@@ -16,16 +16,7 @@ export default {
     if (woff.getOS() === "web") {
       //PC 접근
       woff.openWindow({
-        url:
-          "https://axdwp.aekyung.kr/ezBoard/boardItemView.do?" +
-          "showAdjacent=" +
-          this.boardInfo.showAdjacent +
-          "&itemID=" +
-          this.boardInfo.itemID +
-          "&boardID=" +
-          this.boardInfo.boardID +
-          "&location=" +
-          this.boardInfo.location,
+        url: this.boardUrl.pc,
       });
       window.close(); //창 안닫힘
       return;
@@ -48,14 +39,8 @@ export default {
               v.displayName +
               "&domainId=" +
               v.domainId +
-              "&showAdjacent=" +
-              this.boardInfo.showAdjacent +
-              "&itemID=" +
-              this.boardInfo.itemID +
-              "&boardID=" +
-              this.boardInfo.boardID +
-              "&location=" +
-              this.boardInfo.location,
+              "&linkUrlMobile=" +
+              this.boardUrl.mobile,
           });
         });
       }

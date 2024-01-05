@@ -15,7 +15,7 @@ export default {
   methods: {
     ...mapMutations("serviceStore", ["set_service"]),
     ...mapMutations("approvalStore", ["set_doc_info"]),
-    ...mapMutations("boardStore", ["set_board_info"]),
+    ...mapMutations("boardStore", ["set_board_url"]),
   },
   created() {
     /* eslint-disable */
@@ -30,11 +30,9 @@ export default {
           });
           break;
         case "board":
-          this.set_board_info({
-            showAdjacent: this.$route.query.showAdjacent,
-            itemID: this.$route.query.itemID,
-            boardID: this.$route.query.boardID,
-            location: this.$route.query.location,
+          this.set_board_url({
+            mobile: this.$route.query.linkUrlMobile,
+            pc: this.$route.query.linkUrl,
           });
           break;
         default:

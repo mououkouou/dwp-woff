@@ -1,12 +1,12 @@
 const boardStore = {
   namespaced: true,
   state: {
-    boardInfo: { showAdjacent: "", itemID: "", boardID: "", location: "" },
+    boardUrl: { mobile: "", pc: "" },
   },
   getters: {},
   mutations: {
-    set_board_info(state, payload) {
-      state.docInfo = payload;
+    set_board_url(state, payload) {
+      state.boardUrl = payload;
     },
   },
   actions: {},
