@@ -1,7 +1,7 @@
 const boardStore = {
   namespaced: true,
   state: {
-    boardUrl: { mobile: "", pc: "" },
+    boardUrl: { itemID: "", boardID: "", boardType: "", boardItemListType: "" },
   },
   getters: {},
   mutations: {

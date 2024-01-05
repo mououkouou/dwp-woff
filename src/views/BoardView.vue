@@ -15,9 +15,18 @@ export default {
     /* eslint-disable */
     if (woff.getOS() === "web") {
       //PC 접근
-      woff.openWindow({
-        url: this.boardUrl.pc,
-      });
+      // const encodeItemID = encodeURIComponent(this.boardUrl.itemID);
+      // const encodeBoardID = encodeURIComponent(this.boardUrl.boardID);
+      // window.open(
+      //   "https://axdwp.aekyung.kr/ezBoard/boardItemView.do?" +
+      //     "itemID=" +
+      //     encodeItemID +
+      //     "&boardID=" +
+      //     encodeBoardID
+      // );
+      window.open(
+        "https://axdwp.aekyung.kr/ezBoard/boardItemView.do?itemID=%7BB155EE68-7C16-46BA-AAE7-23D8FD28BF9D%7D&boardID=%7B57cd4ad0-07b2-40fa-8faf-be622e002ea5%7D"
+      );
       window.close(); //창 안닫힘
       return;
     } else if (woff.getOS() === "ios" || woff.getOS() === "android") {
