@@ -19,10 +19,9 @@ export default {
   },
   created() {
     /* eslint-disable */
-    // window.open(
-    //   "https://axdwp.aekyung.kr/ezBoard/boardItemView.do?itemID=%7BB155EE68-7C16-46BA-AAE7-23D8FD28BF9D%7D&boardID=%7B57cd4ad0-07b2-40fa-8faf-be622e002ea5%7D"
-    // );
+    console.log("start");
     // this.set_service(this.$route.query.service); // 서비스 종류 세팅
+
     // if (this.service) {
     //   switch (this.service) {
     //     case "approval":
@@ -33,10 +32,8 @@ export default {
     //       break;
     //     case "board":
     //       this.set_board_url({
-    //         itemID: this.$route.query.itemID,
-    //         boardID: this.$route.query.boardID,
-    //         boardType: this.$route.query.boardType,
-    //         boardItemListType: this.$route.query.boardItemListType,
+    //         mobile: this.$route.query.linkUrlMobile,
+    //         pc: this.$route.query.linkUrl,
     //       });
     //       break;
     //     default:
@@ -46,18 +43,20 @@ export default {
     // }
   },
   mounted() {
-    window.open("https://axdwp.aekyung.kr/ezPersonal/changePersonInfo.do");
-    // woff
-    //   .init({
-    //     woffId: "J1pIRq1ZRwF56R8lg0MYPw", // 발행된 WOFF ID
-    //   })
-    //   .then(() => {
-    //     this.$router.push(this.service); //서비스 페이지로 이동
-    //   })
-    //   .catch((err) => {
-    //     // 초기화 처리 중 오류가 발생한 경우
-    //     console.log(err.code, err.message);
-    //   });
+    woff
+      .init({
+        woffId: "gvJ0nHfADuFV83e-2hZRgw", // 발행된 WOFF ID
+      })
+      .then(() => {
+        woff.getProfile().then((v) => {
+          console.log(v.userId);
+        });
+        //this.$router.push(this.service); //서비스 페이지로 이동
+      })
+      .catch((err) => {
+        // 초기화 처리 중 오류가 발생한 경우
+        console.log(err.code, err.message);
+      });
   },
 };
 </script>
