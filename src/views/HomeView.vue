@@ -49,7 +49,7 @@ export default {
       })
       .then(() => {
         woff.getProfile().then((v) => {
-          console.log(v.userId);
+          alert(v.userId);
         });
         //this.$router.push(this.service); //서비스 페이지로 이동
       })
