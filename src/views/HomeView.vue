@@ -45,13 +45,18 @@ export default {
   mounted() {
     woff
       .init({
-        woffId: "gvJ0nHfADuFV83e-2hZRgw", // 발행된 WOFF ID
+        woffId: "XZLYiH94fiCiszEbelaQtw", // 발행된 WOFF ID
       })
       .then(() => {
-        woff.getProfile().then((v) => {
-          alert(v.userId);
-        });
-        //this.$router.push(this.service); //서비스 페이지로 이동
+        if (!woff.isLoggedIn()) {
+          //로그인 유무 확인
+          window.alert("네이버웍스 로그인 후 사용 가능합니다.");
+
+          woff.getProfile().then((v) => {
+            alert(v.userId);
+          });
+          //this.$router.push(this.service); //서비스 페이지로 이동
+        }
       })
       .catch((err) => {
         // 초기화 처리 중 오류가 발생한 경우
