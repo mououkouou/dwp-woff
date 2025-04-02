@@ -9,7 +9,7 @@ export default {
   methods: {},
   created() {},
   mounted() {
-    const woffId = "ON3IesXcI8cml0qBEipzvw";
+    const woffId = "mr8cCDIydjiWWBTdFpeGvw";
     woff
       .init({
         woffId: woffId,
