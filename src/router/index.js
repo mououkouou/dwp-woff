@@ -10,16 +10,6 @@ const routes = [
     name: "home",
     component: HomeView,
   },
-  {
-    path: "/approval",
-    name: "approval",
-    component: () => import("../views/ApprovalView.vue"),
-  },
-  {
-    path: "/board",
-    name: "board",
-    component: () => import("../views/BoardView.vue"),
-  },
 ];
 
 const router = new VueRouter({
